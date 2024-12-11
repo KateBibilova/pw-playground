@@ -20,8 +20,20 @@ test.describe("Main page", () => {
 
     await expect(mainPage.checkEspooButtonOnMainPage).toBeVisible()
     
-    console.log("Тест завершился успешно!")
   
+  });
+
+  test("changing store address", async ({ page }) => {
+    await page.setViewportSize({ width: 1920, height: 1080 })
+    const mainPage = new MainPage(page);
+    await mainPage.goToPage();
+    await mainPage.selectStoreButton.click()
+    await mainPage.searchInput.click()
+    await mainPage.searchInput.fill('Tampere')
+    await mainPage.searchButton.click()
+    await mainPage.tampereButton.click()
+    
+    await expect(mainPage.checkTampereButtonOnMainPage).toBeVisible()
   });
   // test("...", async ({ page }) => {
   //  ....

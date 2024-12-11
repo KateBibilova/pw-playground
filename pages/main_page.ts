@@ -11,6 +11,10 @@ export default class MainPage extends BasePage {
   readonly selectStoreButton: Locator;
   readonly selectEspooButton: Locator;
   readonly checkEspooButtonOnMainPage: Locator;
+  readonly searchInput: Locator;
+  readonly searchButton: Locator;
+  readonly tampereButton: Locator;
+  readonly checkTampereButtonOnMainPage: Locator;
 
 
 
@@ -27,6 +31,12 @@ export default class MainPage extends BasePage {
     this.selectStoreButton = page.getByRole('button', {name: 'Select store'})
     this.selectEspooButton = page.getByRole('button', {name: 'Espoo'})
     this.checkEspooButtonOnMainPage = page.getByRole('button', {name: 'Espoo - Select store'})
+    this.searchInput = page.getByRole('searchbox', {name: 'Search by location'})
+    this.searchButton = page.locator('button[type="submit"][aria-hidden="false"].hnf-btn--icon-tertiary.hnf-search__action')
+    this.tampereButton = page.getByRole('button', {name: 'Tampere'})
+    this.checkTampereButtonOnMainPage = page.getByRole('button', {name: 'Tampere - Select store'})
+
+    
   }
 
   async verifyLogo(page: Page) {
