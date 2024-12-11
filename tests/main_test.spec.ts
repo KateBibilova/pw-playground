@@ -10,28 +10,19 @@ test.describe("Main page", () => {
     await mainPage.verifyBasicCategories(page);
   });
 
-  test("start and end chat", async ({ page }) => {
+  test("City selection should reflect on the main page", async ({ page }) => {
     const mainPage = new MainPage(page)
 
     await mainPage.goToPage();
+    await mainPage.selectStoreButton.click()
+    await mainPage.selectEspooButton.click()
 
-    await expect(mainPage.chatButton).toBeVisible
 
-    await mainPage.chatButton.click()
- 
-    await mainPage.checkBox.click()
-
-    await mainPage.buttonStart.click()
-
-    await expect(mainPage.textConnected).toBeVisible
-
-    await mainPage.closeButton.click()
-
-    await mainPage.endButton.click()
-
+    await expect(mainPage.checkEspooButtonOnMainPage).toBeVisible()
+    
+    console.log("Тест завершился успешно!")
   
   });
-  console.log("Тест завершился успешно!");
   // test("...", async ({ page }) => {
   //  ....
   // });

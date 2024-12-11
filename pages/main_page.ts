@@ -8,12 +8,10 @@ export default class MainPage extends BasePage {
   readonly exploreRooms_Cat: Locator;
   readonly offersLowPrices_Cat: Locator;
   readonly planningServices_Cat: Locator;
-  readonly chatButton: Locator;
-  readonly checkBox: Locator;
-  readonly buttonStart: Locator;
-  readonly textConnected: Locator;
-  readonly closeButton: Locator;
-  readonly endButton: Locator;
+  readonly selectStoreButton: Locator;
+  readonly selectEspooButton: Locator;
+  readonly checkEspooButtonOnMainPage: Locator;
+
 
 
   constructor(page: Page) {
@@ -26,11 +24,9 @@ export default class MainPage extends BasePage {
     this.exploreRooms_Cat = page.getByRole('tab', { name: 'Explore rooms' });
     this.offersLowPrices_Cat = page.getByRole('tab', { name: 'Offers & low prices' });
     this.planningServices_Cat = page.getByRole('tab', { name: 'Planning & services' });
-    this.chatButton = page.getByRole('button', {name: 'Start Chat'});
-    this.checkBox = page.locator('.chatbot-start-form-checkbox__symbol')
-    this.buttonStart = page.locator('.chatbot-start-form-checkbox__label')
-    this.textConnected = page.locator('span:has-text("Chatbot Connected")')
-    this.endButton = page.getByRole('button', {name: 'End chat'});
+    this.selectStoreButton = page.getByRole('button', {name: 'Select store'})
+    this.selectEspooButton = page.getByRole('button', {name: 'Espoo'})
+    this.checkEspooButtonOnMainPage = page.getByRole('button', {name: 'Espoo - Select store'})
   }
 
   async verifyLogo(page: Page) {
