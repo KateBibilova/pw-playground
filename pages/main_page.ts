@@ -39,6 +39,15 @@ export default class MainPage extends BasePage {
     
   }
 
+  async searchAndSelectCity(page: Page){
+    await test.step("entering the city into the input", async () =>{
+    await this.selectStoreButton.click()
+    await this.searchInput.click()
+    await this.searchInput.fill('Tampere')
+    })
+    
+  }
+
   async verifyLogo(page: Page) {
     await test.step("Verify logo", async () => {
       await expect(this.logo).toBeVisible();
