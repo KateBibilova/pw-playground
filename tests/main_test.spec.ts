@@ -11,28 +11,19 @@ test.describe("Main page", () => {
   });
 
   test("start and end chat", async ({ page }) => {
-    const mainPage = new MainPage(page)
-
-    await mainPage.goToPage();
-
-    await expect(mainPage.chatButton).toBeVisible
-
-    await mainPage.chatButton.click()
- 
-    await mainPage.checkBox.click()
-
-    await mainPage.buttonStart.click()
-
-    await expect(mainPage.textConnected).toBeVisible
-
-    await mainPage.closeButton.click()
-
-    await mainPage.endButton.click()
-
-  
   });
-  console.log("Тест завершился успешно!");
-  // test("...", async ({ page }) => {
-  //  ....
-  // });
 });
+
+// test('test', async ({ page }) => {
+//   await page.goto('https://www.ikea.com/fi/en/');
+//   await page.getByLabel('Enter postcode').click();
+//   await page.getByRole('textbox').click();
+//   await page.getByRole('textbox').fill('02200');
+//   await page.getByRole('button', { name: 'Save' }).click();
+//   await page.getByText('You\'ve selected 02200 as your').click();
+//   await page.getByRole('button', { name: 'Dismiss notification' }).click();
+//   await page.getByLabel('- Enter postcode').click();
+//   await page.getByRole('button', { name: 'Forget postcode' }).click();
+//   await page.getByLabel('Enter postcode').click();
+//   await page.getByLabel('Close').click();
+// });

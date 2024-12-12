@@ -8,12 +8,9 @@ export default class MainPage extends BasePage {
   readonly exploreRooms_Cat: Locator;
   readonly offersLowPrices_Cat: Locator;
   readonly planningServices_Cat: Locator;
-  readonly chatButton: Locator;
-  readonly checkBox: Locator;
-  readonly buttonStart: Locator;
-  readonly textConnected: Locator;
-  readonly closeButton: Locator;
-  readonly endButton: Locator;
+  readonly enterPostcode_Btn: Locator;
+  readonly postCode_Inp: Locator;
+  readonly save_Btn
 
 
   constructor(page: Page) {
@@ -26,11 +23,12 @@ export default class MainPage extends BasePage {
     this.exploreRooms_Cat = page.getByRole('tab', { name: 'Explore rooms' });
     this.offersLowPrices_Cat = page.getByRole('tab', { name: 'Offers & low prices' });
     this.planningServices_Cat = page.getByRole('tab', { name: 'Planning & services' });
-    this.chatButton = page.getByRole('button', {name: 'Start Chat'});
-    this.checkBox = page.locator('.chatbot-start-form-checkbox__symbol')
-    this.buttonStart = page.locator('.chatbot-start-form-checkbox__label')
-    this.textConnected = page.locator('span:has-text("Chatbot Connected")')
-    this.endButton = page.getByRole('button', {name: 'End chat'});
+    
+    this.enterPostcode_Btn = page.getByLabel('Enter postcode');
+    this.postCode_Inp = page.getByRole('textbox');
+    this.postCode_Inp = page.getByRole('button', { name: 'Save' });
+
+
   }
 
   async verifyLogo(page: Page) {
@@ -48,3 +46,18 @@ export default class MainPage extends BasePage {
     });
   }
 }
+
+
+test('test', async ({ page }) => {
+  //   await page.goto('https://www.ikea.com/fi/en/');
+  //   await page.getByLabel('Enter postcode').click();
+  //   await page.getByRole('textbox').click();
+  //   await page.getByRole('textbox').fill('02200');
+  //   await page.getByRole('button', { name: 'Save' }).click();
+  //   await page.getByText('You\'ve selected 02200 as your').click();
+  //   await page.getByRole('button', { name: 'Dismiss notification' }).click();
+  //   await page.getByLabel('- Enter postcode').click();
+  //   await page.getByRole('button', { name: 'Forget postcode' }).click();
+  //   await page.getByLabel('Enter postcode').click();
+  //   await page.getByLabel('Close').click();
+  // });
