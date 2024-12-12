@@ -15,6 +15,7 @@ export default class MainPage extends BasePage {
   readonly searchButton: Locator;
   readonly tampereButton: Locator;
   readonly checkTampereButtonOnMainPage: Locator;
+  readonly locationNotFound: Locator;
 
 
 
@@ -35,15 +36,16 @@ export default class MainPage extends BasePage {
     this.searchButton = page.locator('button[type="submit"][aria-hidden="false"].hnf-btn--icon-tertiary.hnf-search__action')
     this.tampereButton = page.getByRole('button', {name: 'Tampere'})
     this.checkTampereButtonOnMainPage = page.getByRole('button', {name: 'Tampere - Select store'})
+    this.locationNotFound = page.getByText('Location not found')
 
     
   }
 
-  async searchAndSelectCity(page: Page){
-    await test.step("entering the city into the input", async () =>{
+  async searchAndSelectCity(cityName: string){
+    await test.step(`Searching for city: ${cityName} `, async () =>{
     await this.selectStoreButton.click()
     await this.searchInput.click()
-    await this.searchInput.fill('Tampere')
+    await this.searchInput.fill(cityName)
     })
     
   }
